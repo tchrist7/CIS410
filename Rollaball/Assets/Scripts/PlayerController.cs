@@ -11,12 +11,10 @@ public class PlayerController : MonoBehaviour {
     public GameObject winTextObject;
 
     private Rigidbody rb;
-    private Collider collider;
-    // private Transform transform;
+    private new SphereCollider collider;
     private int count;
     private float movementX;
     private float movementZ;
-    // private bool isGrounded;
     private bool canDoubleJump;
     private float distToGround;
     
@@ -25,8 +23,7 @@ public class PlayerController : MonoBehaviour {
     void Start() 
     {
         rb = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
-        // transform = GetComponent<Transform>();
+        collider = GetComponent<SphereCollider>();
         count = 0;
 
         SetCountText();
@@ -71,7 +68,6 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate() 
     {
-        // IsGrounded() = (0.4999f <= rb.position.y && rb.position.y <= 0.5001f);
         if (IsGrounded())
         {
             Vector3 movement = new Vector3(movementX, 0f, movementZ);
